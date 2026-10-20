@@ -1,0 +1,135 @@
+/* SpaceX Contact Form from DESIGN.md */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 540px;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid var(--color-hairline-on-dark);
+  border-radius: var(--radius-xs);
+  padding: 32px;
+  backdrop-filter: blur(4px);
+}
+
+.eyebrow {
+  font-family: var(--font-display);
+  font-size: var(--text-micro-cap);
+  font-weight: 500;
+  letter-spacing: 0.96px;
+  line-height: 2.0;
+  text-transform: uppercase;
+  color: var(--color-on-primary-mute);
+}
+
+.formTitle {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--color-on-primary);
+  margin-bottom: 4px;
+}
+
+.alertSuccess {
+  padding: 14px 18px;
+  background: #000000;
+  border: 1px solid var(--color-on-primary);
+  color: var(--color-on-primary);
+  font-family: var(--font-display);
+  font-size: var(--text-button-cap);
+  font-weight: 700;
+  letter-spacing: 1.17px;
+  text-transform: uppercase;
+  border-radius: var(--radius-xs);
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.label {
+  font-family: var(--font-display);
+  font-size: var(--text-micro-cap);
+  font-weight: 700;
+  letter-spacing: 0.96px;
+  text-transform: uppercase;
+  color: var(--color-on-primary-mute);
+}
+
+/* text-input from DESIGN.md */
+.input,
+.textarea {
+  width: 100%;
+  background-color: var(--color-canvas-night);
+  border: 1px solid var(--color-hairline-on-dark);
+  border-radius: var(--radius-xs);
+  padding: 12px 16px;
+  color: var(--color-on-primary);
+  font-family: var(--font-body);
+  font-size: var(--text-body-md);
+  letter-spacing: 0.32px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.input:focus,
+.textarea:focus {
+  border-color: var(--color-on-primary);
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: var(--color-ink-mute);
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* button-ghost-on-dark from DESIGN.md */
+.submitBtn {
+  margin-top: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  color: var(--color-on-primary);
+  border: 1px solid var(--color-on-primary);
+  border-radius: var(--radius-pill);
+  padding: 18px 24px;
+  font-family: var(--font-display);
+  font-size: var(--text-button-cap);
+  font-weight: 700;
+  line-height: 0.94;
+  letter-spacing: 1.17px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  width: fit-content;
+}
+
+.submitBtn:hover:not(:disabled) {
+  background-color: var(--color-canvas-light);
+  color: var(--color-ink);
+}
+
+.submitBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+@media (max-width: 600px) {
+  .form {
+    padding: 24px 20px;
+  }
+
+  .submitBtn {
+    width: 100%;
+  }
+}

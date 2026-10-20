@@ -1,0 +1,26 @@
+/* SpaceX footer-dark from DESIGN.md */
+.footer {
+  width: 100%;
+  background-color: var(--color-canvas-night);
+  border-top: 1px solid var(--color-hairline-on-dark);
+  padding: 24px;
+  position: relative;
+  z-index: 10;
+}
+
+.footerContent {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footerBrand {
+  font-family: var(--font-display);
+  font-size: var(--text-caption);
+  color: var(--color-ink-mute);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 500;
+}

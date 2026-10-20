@@ -1,0 +1,351 @@
+/* SpaceX Sidebar Navigation from DESIGN.md */
+
+/* Mobile Top Bar (only visible < 769px) */
+.mobileTopBar {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  background-color: var(--color-canvas-night);
+  border-bottom: 1px solid var(--color-hairline-on-dark);
+  padding: 0 20px;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 500;
+}
+
+.mobileBrand {
+  display: inline-flex;
+  align-items: center;
+}
+
+.mobileBrandLogo {
+  height: 18px;
+  width: auto;
+  fill: #ffffff;
+}
+
+.mobileHamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 36px;
+  height: 36px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.hamburgerBar {
+  width: 22px;
+  height: 2px;
+  background-color: #ffffff;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+  transform-origin: center;
+}
+
+.hamburgerBarOpenTop {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.hamburgerBarOpenMid {
+  opacity: 0;
+}
+
+.hamburgerBarOpenBot {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Backdrop for Mobile Drawer */
+.backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(4px);
+  z-index: 900;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.backdropOpen {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Sidebar Container */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 270px;
+  background-color: var(--color-canvas-night);
+  border-right: 1px solid var(--color-hairline-on-dark);
+  display: flex;
+  flex-direction: column;
+  padding: 24px 20px;
+  z-index: 1000;
+  overflow-y: auto;
+  overflow-x: hidden;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Custom scrollbar for sidebar */
+.sidebar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background: var(--color-hairline-on-dark);
+  border-radius: 2px;
+}
+
+/* Top Logo Area */
+.logoWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+  padding-left: 4px;
+}
+
+.brandLink {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.brandLogo {
+  height: 18px;
+  width: auto;
+  fill: #ffffff;
+}
+
+/* Profile Card Area at the Top of Navigations */
+.profileSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 16px 12px 20px;
+  background-color: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--color-hairline-on-dark);
+  border-radius: var(--radius-sm);
+  margin-bottom: 24px;
+}
+
+.avatarContainer {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  margin-bottom: 14px;
+}
+
+.avatarSvg {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+}
+
+.nameRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+
+.userName {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #ffffff;
+}
+
+.verifiedBadge {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.userHandle {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--color-ink-mute);
+  letter-spacing: 0.2px;
+  margin-bottom: 16px;
+}
+
+/* Social & Action Button Row */
+.socialRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.socialBtn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #f0f0fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  padding: 0;
+}
+
+.socialBtn:hover {
+  background-color: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* Nav Menu Section */
+.navSection {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.sectionLabel {
+  font-family: var(--font-display);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--color-ink-mute);
+  margin-bottom: 8px;
+  padding-left: 14px;
+}
+
+.navList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  padding: 13px 18px;
+  border-radius: var(--radius-xs);
+  color: var(--color-on-primary-mute);
+  opacity: 0.68;
+  text-decoration: none;
+  font-family: var(--font-display);
+  font-size: var(--text-button-cap);
+  font-weight: 700;
+  line-height: 0.94;
+  letter-spacing: 1.17px;
+  text-transform: uppercase;
+  position: relative;
+  transition: opacity 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.navItem:hover {
+  opacity: 1;
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.navItemActive {
+  opacity: 1;
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.08);
+  font-weight: 700;
+}
+
+.activeIndicator {
+  position: absolute;
+  left: 0;
+  top: 10px;
+  bottom: 10px;
+  width: 2px;
+  background-color: #ffffff;
+  border-radius: 1px;
+}
+
+/* Sidebar Footer */
+.sidebarFooter {
+  padding-top: 20px;
+  margin-top: 24px;
+  border-top: 1px solid var(--color-hairline-on-dark);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.footerTelemetry {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-display);
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--color-ink-mute);
+}
+
+.telemetryStatus {
+  color: var(--color-on-primary-mute);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.statusDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: #ffffff;
+}
+
+.copyright {
+  font-family: var(--font-display);
+  font-size: 11px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: var(--color-ink-mute);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .mobileTopBar {
+    display: flex;
+  }
+
+  .backdrop {
+    display: block;
+  }
+
+  .sidebar {
+    transform: translateX(-100%);
+    box-shadow: 20px 0 40px rgba(0, 0, 0, 0.8);
+    width: 280px;
+  }
+
+  .sidebarOpen {
+    transform: translateX(0);
+  }
+}

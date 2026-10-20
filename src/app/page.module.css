@@ -1,0 +1,335 @@
+/* SpaceX Theme Page Styles from DESIGN.md */
+.page {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--color-canvas-night);
+  color: var(--color-on-primary);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Full-bleed Photo Band (card-photo-band) */
+.band {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  scroll-margin-top: 0px;
+}
+
+/* Photo bands with images */
+.bandHome {
+  background-image: url("/images/hero_launch.jpg");
+  background-position: center bottom;
+}
+
+.bandServices {
+  background-image: url("/images/services_orbit.jpg");
+  background-position: center center;
+}
+
+.bandProject {
+  background-image: url("/images/project_starship.jpg");
+  background-position: center center;
+}
+
+.bandContact {
+  background-image: url("/images/contact_mars.jpg");
+  background-position: center center;
+  justify-content: center;
+  padding-top: 100px;
+  padding-bottom: 80px;
+}
+
+/* Inner 1200px Reading Column */
+.bandContent {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 32px 100px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  position: relative;
+  z-index: 10;
+}
+
+/* Eyebrow Micro-Cap from DESIGN.md */
+.eyebrow {
+  font-family: var(--font-display);
+  font-size: var(--text-micro-cap);
+  font-weight: 500;
+  line-height: 2.0;
+  letter-spacing: 0.96px;
+  text-transform: uppercase;
+  color: var(--color-on-primary-mute);
+  margin-bottom: 2px;
+}
+
+/* Display-XXL Headline from DESIGN.md */
+.headline {
+  font-family: var(--font-display);
+  font-size: var(--text-display-xxl);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: var(--color-on-primary);
+  margin: 0;
+  max-width: 900px;
+}
+
+/* Body-LG from DESIGN.md */
+.leadText {
+  font-family: var(--font-body);
+  font-size: var(--text-body-lg);
+  font-weight: 400;
+  line-height: 1.7;
+  letter-spacing: 0.32px;
+  color: var(--color-on-primary-mute);
+  max-width: 680px;
+  margin-top: 6px;
+  text-transform: uppercase;
+}
+
+/* Engineering Telemetry / Specs Row */
+.statsRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  padding: 12px 0;
+  border-top: 1px solid var(--color-hairline-on-dark);
+  border-bottom: 1px solid var(--color-hairline-on-dark);
+  max-width: 720px;
+  width: 100%;
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.statValue {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  color: var(--color-on-primary);
+}
+
+.statLabel {
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.96px;
+  text-transform: uppercase;
+  color: var(--color-on-primary-mute);
+}
+
+/* button-ghost-on-dark from DESIGN.md */
+.ghostBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  color: var(--color-on-primary);
+  border: 1px solid var(--color-on-primary);
+  border-radius: var(--radius-pill);
+  padding: 18px 24px;
+  font-family: var(--font-display);
+  font-size: var(--text-button-cap);
+  font-weight: 700;
+  line-height: 0.94;
+  letter-spacing: 1.17px;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.25s ease, color 0.25s ease;
+  margin-top: 18px;
+  user-select: none;
+  width: fit-content;
+}
+
+.ghostBtn:hover {
+  background-color: var(--color-canvas-light);
+  color: var(--color-ink);
+}
+
+/* Scroll Chevron Indicator */
+.scrollIndicator {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--color-on-primary);
+  opacity: 0.75;
+  transition: opacity 0.2s ease;
+  text-decoration: none;
+}
+
+.scrollIndicator:hover {
+  opacity: 1;
+}
+
+.scrollChevron {
+  width: 20px;
+  height: 20px;
+  animation: bounceDown 2s infinite ease-in-out;
+}
+
+@keyframes bounceDown {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(6px);
+  }
+}
+
+/* Contact Section Inner Container */
+.contactContainer {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+}
+
+.contactDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contactCoordList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--color-hairline-on-dark);
+}
+
+.contactCoordItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-display);
+  font-size: var(--text-micro-cap);
+  letter-spacing: 0.96px;
+  text-transform: uppercase;
+}
+
+.coordLabel {
+  color: var(--color-ink-mute);
+}
+
+.coordValue {
+  color: var(--color-on-primary);
+  font-weight: 700;
+}
+
+/* Site-wide Footer (footer-dark) from DESIGN.md */
+.footer {
+  width: 100%;
+  background-color: var(--color-canvas-night);
+  border-top: 1px solid var(--color-hairline-on-dark);
+  padding: 32px 24px;
+  position: relative;
+  z-index: 10;
+}
+
+.footerContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footerBrand {
+  font-family: var(--font-display);
+  font-size: var(--text-caption);
+  color: var(--color-on-primary);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.footerLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+}
+
+.footerLink {
+  font-family: var(--font-display);
+  font-size: var(--text-micro-cap);
+  font-weight: 500;
+  letter-spacing: 0.96px;
+  text-transform: uppercase;
+  color: var(--color-on-primary-mute);
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+
+.footerLink:hover {
+  opacity: 1;
+  color: var(--color-on-primary);
+}
+
+/* Responsive Media Queries */
+@media (max-width: 960px) {
+  .contactContainer {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .bandContact {
+    padding-top: 120px;
+    padding-bottom: 60px;
+  }
+}
+
+@media (max-width: 600px) {
+  .bandContent {
+    padding: 0 20px 80px 20px;
+  }
+
+  .statsRow {
+    gap: 16px;
+  }
+
+  .ghostBtn {
+    width: 100%;
+  }
+
+  .footerContent {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footerLinks {
+    gap: 16px;
+  }
+}

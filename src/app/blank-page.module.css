@@ -1,0 +1,87 @@
+/* Blank Page Template Styles (SpaceX Theme with Sidebar Layout) */
+.page {
+  flex: 1;
+  width: 100%;
+  background-color: var(--color-canvas-night);
+  color: var(--color-on-primary);
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  flex: 1;
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 64px 48px 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.eyebrow {
+  font-family: var(--font-display);
+  font-size: var(--text-micro-cap);
+  font-weight: 500;
+  line-height: 2.0;
+  letter-spacing: 0.96px;
+  text-transform: uppercase;
+  color: var(--color-on-primary-mute);
+  margin-bottom: 8px;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: var(--text-display-xxl);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: var(--color-on-primary);
+  margin-bottom: 24px;
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-hairline-on-dark);
+  margin-bottom: 32px;
+}
+
+.contentPlaceholder {
+  width: 100%;
+  min-height: 340px;
+  border: 1px dashed var(--color-hairline-on-dark);
+  border-radius: var(--radius-xs);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 48px 24px;
+  text-align: center;
+}
+
+.placeholderCode {
+  font-family: var(--font-display);
+  font-size: var(--text-button-cap);
+  font-weight: 700;
+  letter-spacing: 1.17px;
+  text-transform: uppercase;
+  color: var(--color-on-primary);
+}
+
+.placeholderText {
+  font-family: var(--font-body);
+  font-size: var(--text-body-md);
+  color: var(--color-ink-mute);
+  letter-spacing: 0.32px;
+  text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 32px 20px 48px;
+  }
+}

@@ -1,0 +1,168 @@
+/* SpaceX nav-bar-overlay from DESIGN.md */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  width: 100%;
+  background: transparent;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  border-bottom: 1px solid transparent;
+}
+
+.headerScrolled {
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom-color: var(--color-hairline-on-dark);
+}
+
+.navContainer {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 24px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* SpaceX Wordmark Logo */
+.brand {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.brandLogo {
+  height: 22px;
+  width: auto;
+  fill: #ffffff;
+}
+
+/* Desktop Nav Items in typography.button-cap */
+.desktopNav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.navItem {
+  position: relative;
+  font-family: var(--font-display);
+  font-size: var(--text-button-cap);
+  font-weight: 700;
+  line-height: 0.94;
+  letter-spacing: 1.17px;
+  text-transform: uppercase;
+  color: var(--color-on-primary);
+  opacity: 0.82;
+  text-decoration: none;
+  padding-bottom: 4px;
+  transition: opacity 0.2s ease;
+  cursor: pointer;
+}
+
+.navItem:hover {
+  opacity: 1;
+}
+
+.navItemActive {
+  opacity: 1;
+}
+
+.navItemActive::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background-color: #ffffff;
+}
+
+/* Mobile Hamburger Toggle */
+.mobileToggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  width: 36px;
+  height: 36px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.bar {
+  width: 22px;
+  height: 2px;
+  background-color: #ffffff;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+  transform-origin: center;
+}
+
+.barOpenTop {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.barOpenMid {
+  opacity: 0;
+}
+
+.barOpenBot {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Mobile Overlay Drawer */
+.mobileMenu {
+  position: fixed;
+  top: 72px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--color-canvas-night);
+  padding: 40px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  z-index: 999;
+  border-top: 1px solid var(--color-hairline-on-dark);
+}
+
+.mobileNavItem {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--color-on-primary);
+  text-decoration: none;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--color-hairline-on-dark);
+  transition: opacity 0.2s ease;
+}
+
+.mobileNavItem:hover,
+.mobileNavItemActive {
+  color: #ffffff;
+  border-bottom-color: #ffffff;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 768px) {
+  .navContainer {
+    padding: 20px 24px;
+  }
+
+  .desktopNav {
+    display: none;
+  }
+
+  .mobileToggle {
+    display: flex;
+  }
+}
