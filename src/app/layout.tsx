@@ -5,8 +5,8 @@ import styles from "./layout.module.css";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "SpaceX",
-  description: "SpaceX designs, manufactures and launches advanced rockets and spacecraft.",
+  title: "Cyrus B. Reyes | Portfolio",
+  description: "Portfolio of Cyrus B. Reyes — Software Developer & Computer Science Graduate.",
 };
 
 export default function RootLayout({

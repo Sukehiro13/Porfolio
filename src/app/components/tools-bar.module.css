@@ -1,0 +1,206 @@
+/* Tools Bar / Daily Drivers Component (Dark SpaceX Theme) */
+
+.wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin: 8px 0 28px 0;
+  padding: 4px 0;
+}
+
+/* Left Title Section */
+.titleSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-shrink: 0;
+  min-width: 150px;
+}
+
+.eyebrow {
+  font-family: var(--font-display, "D-DIN-Bold", sans-serif);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: #d97736; /* Warm amber / copper accent matching the reference */
+  margin-bottom: 3px;
+  line-height: 1.2;
+}
+
+.title {
+  font-family: var(--font-display, "D-DIN-Bold", sans-serif);
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+/* Vertical Divider between Title & Pill */
+.sectionDivider {
+  width: 1px;
+  height: 38px;
+  background: rgba(255, 255, 255, 0.12);
+  flex-shrink: 0;
+}
+
+/* Right Tools Capsule / Pill Window */
+.pillContainer {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  position: relative;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 9999px;
+  padding: 8px 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent 0%, black 28px, black calc(100% - 28px), transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 28px, black calc(100% - 28px), transparent 100%);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.pillContainer:hover {
+  border-color: rgba(255, 255, 255, 0.16);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* Sliding Track & Continuous Infinite Motion */
+.marqueeTrack {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  animation: marqueeSlide 30s linear infinite;
+  will-change: transform;
+}
+
+/* Pause sliding on hover so user can inspect tools */
+.pillContainer:hover .marqueeTrack {
+  animation-play-state: paused;
+}
+
+.marqueeGroup {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+@keyframes marqueeSlide {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.toolsList {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 0;
+  flex-shrink: 0;
+}
+
+.toolItem {
+  display: flex;
+  align-items: center;
+  padding: 4px 16px;
+  cursor: pointer;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+}
+
+.toolItem:hover {
+  transform: translateY(-1px);
+}
+
+.toolItem:hover .toolName {
+  color: #ffffff;
+}
+
+.toolItem:hover .toolIconWrapper {
+  transform: scale(1.15);
+  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.35));
+}
+
+.toolIconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  flex-shrink: 0;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.toolName {
+  font-family: var(--font-body, "D-DIN", sans-serif);
+  font-size: 13.5px;
+  font-weight: 500;
+  letter-spacing: 0.25px;
+  color: #cbd5e1;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+
+/* Subtle separator line between items */
+.itemDivider {
+  width: 1px;
+  height: 16px;
+  background: rgba(255, 255, 255, 0.1);
+  flex-shrink: 0;
+}
+
+/* Accessibility: respect user preference for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .marqueeTrack {
+    animation: none;
+  }
+  .pillContainer {
+    overflow-x: auto;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .sectionDivider {
+    display: none;
+  }
+
+  .pillContainer {
+    width: 100%;
+    border-radius: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .toolItem {
+    padding: 4px 12px;
+  }
+
+  .toolName {
+    font-size: 12.5px;
+  }
+
+  .title {
+    font-size: 17px;
+  }
+}

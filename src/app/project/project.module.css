@@ -1,0 +1,861 @@
+/* Project Page Styles — SpaceX Dark Theme (Interactive AniMo Case Study) */
+
+.page {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--color-canvas-night, #000000);
+  color: var(--color-on-primary, #ffffff);
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 56px 40px 96px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* Header */
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.eyebrow {
+  font-family: var(--font-display, "D-DIN-Bold", sans-serif);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: #d97736;
+}
+
+.title {
+  font-family: var(--font-display, "D-DIN-Bold", sans-serif);
+  font-size: clamp(2.8rem, 5.5vw, 4.2rem);
+  font-weight: 700;
+  line-height: 1.0;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin: 0;
+}
+
+.subtitle {
+  font-family: var(--font-body);
+  font-size: 16.5px;
+  line-height: 1.7;
+  color: #94a3b8;
+  max-width: 780px;
+  margin: 0;
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-hairline-on-dark, #3a3a3f);
+  margin-top: 4px;
+}
+
+/* -------------------------------------------------- */
+/* Interactive Project Section / Clickable Card */
+/* -------------------------------------------------- */
+.projectSection {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 100%;
+}
+
+.projectCard {
+  background: #0b0d12;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 24px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.projectCard:hover {
+  border-color: rgba(255, 255, 255, 0.35);
+  transform: translateY(-3px);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.7), 0 0 24px rgba(255, 255, 255, 0.05);
+}
+
+.projectCardOpen {
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+}
+
+/* Cover Image Banner */
+.cardCover {
+  position: relative;
+  width: 100%;
+  height: 340px;
+  background: #000000;
+  overflow: hidden;
+}
+
+.coverImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transition: transform 0.5s ease;
+}
+
+.projectCard:hover .coverImg {
+  transform: scale(1.03);
+}
+
+.coverOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.15) 0%,
+    rgba(11, 13, 18, 0.7) 65%,
+    rgba(11, 13, 18, 1) 100%
+  );
+}
+
+.projectBadge {
+  position: absolute;
+  top: 24px;
+  left: 28px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 32px;
+  padding: 6px 16px;
+  z-index: 2;
+}
+
+/* Card Summary Body */
+.cardSummary {
+  padding: 24px 36px 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.cardTitleRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.titleWithIcon {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.projectIcon {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.projectTitle {
+  font-family: var(--font-display, "D-DIN-Bold", sans-serif);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin: 0;
+}
+
+.projectMeta {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 13px;
+  color: #94a3b8;
+  letter-spacing: 0.3px;
+}
+
+.toggleBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 24px;
+  background-color: #ffffff;
+  color: #000000;
+  font-family: var(--font-display, "D-DIN-Bold", sans-serif);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  border-radius: 32px;
+  border: 1px solid #ffffff;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.toggleBtn:hover {
+  background-color: transparent;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(255, 255, 255, 0.2);
+}
+
+.toggleArrow {
+  transition: transform 0.3s ease;
+}
+
+.toggleArrowOpen {
+  transform: rotate(180deg);
+}
+
+.projectExcerpt {
+  font-family: var(--font-body);
+  font-size: 16.5px;
+  line-height: 1.7;
+  color: #cbd5e1;
+  margin: 0;
+  max-width: 900px;
+}
+
+.tagsRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tagPill {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: #f1f5f9;
+  background: #141720;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 32px;
+  padding: 7px 16px;
+  white-space: nowrap;
+}
+
+.hintText {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 12px;
+  color: #94a3b8;
+  letter-spacing: 0.5px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.hintIcon {
+  font-size: 10px;
+  color: #d97736;
+}
+
+/* -------------------------------------------------- */
+/* Expanded Content (All Abouts of the Project) */
+/* -------------------------------------------------- */
+.expandedDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  animation: expandFadeIn 0.35s ease-out forwards;
+}
+
+@keyframes expandFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Specs Bar */
+.specsBar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  background: #0d0f14;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  padding: 24px 28px;
+}
+
+.specItem {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.specLabel {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: #94a3b8;
+}
+
+.specValue {
+  font-family: var(--font-display, "D-DIN-Bold", sans-serif);
+  font-size: 15px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.4px;
+}
+
+/* Interactive Tabs Section */
+.gallerySection {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.sectionHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sectionTitle {
+  font-family: var(--font-display, "D-DIN-Bold", sans-serif);
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin: 0;
+}
+
+.sectionDesc {
+  font-family: var(--font-body);
+  font-size: 15.5px;
+  color: #94a3b8;
+  margin: 0;
+}
+
+.tabButtons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 16px;
+}
+
+.tabBtn {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 10px 18px;
+  border-radius: 32px;
+  background: #141720;
+  color: #94a3b8;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.tabBtn:hover {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.3);
+  background: #1c202a;
+}
+
+.tabBtnActive {
+  background: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
+  font-weight: 700;
+}
+
+.tabBtnActive:hover {
+  background: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
+}
+
+/* Active Screen Display */
+.activeScreenCard {
+  background: #0b0d12;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 20px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.screenMeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.screenTitleGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-width: 780px;
+}
+
+.screenTitle {
+  font-family: var(--font-display, "D-DIN-Bold", sans-serif);
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin: 0;
+}
+
+.screenCaption {
+  font-family: var(--font-body);
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: #cbd5e1;
+  margin: 0;
+}
+
+.screenBadge {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+/* Image Frame */
+.imageFrame {
+  position: relative;
+  width: 100%;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: #000000;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+}
+
+.screenshotImg {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* Thumbnail Grid */
+.thumbnailGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 14px;
+  margin-top: 12px;
+}
+
+.thumbItem {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  cursor: pointer;
+  background: #141720;
+  transition: all 0.2s ease;
+  aspect-ratio: 16 / 9;
+}
+
+.thumbItem:hover {
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-2px);
+}
+
+.thumbActive {
+  border-color: #ffffff;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.3);
+}
+
+.thumbImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Architecture Pillars Grid */
+.pillarsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.pillarCard {
+  background: #0b0d12;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: all 0.25s ease;
+}
+
+.pillarCard:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-3px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.6);
+}
+
+.pillarNumber {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 13px;
+  font-weight: 700;
+  color: #d97736;
+  letter-spacing: 1.5px;
+}
+
+.pillarTitle {
+  font-family: var(--font-display, "D-DIN-Bold", sans-serif);
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin: 0;
+}
+
+.pillarDesc {
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.65;
+  color: #cbd5e1;
+  margin: 0;
+}
+
+/* Interactive Simulator / Demo Box */
+.simulatorBox {
+  background: #0c0e14;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 20px;
+  padding: 36px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.simHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.simTitle {
+  font-family: var(--font-display, "D-DIN-Bold", sans-serif);
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin: 0;
+}
+
+.simDesc {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: #94a3b8;
+  margin: 0;
+}
+
+.simControls {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.controlGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.controlLabel {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #cbd5e1;
+}
+
+.simSelect,
+.simInput {
+  background: #141720;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 14px;
+  color: #ffffff;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.simSelect:focus,
+.simInput:focus {
+  border-color: #ffffff;
+}
+
+.simOutput {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.outLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.outTitle {
+  font-family: var(--font-display, "D-DIN-Bold", sans-serif);
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+}
+
+.outSub {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: #94a3b8;
+}
+
+.outBadge {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: 20px;
+  background: #ffffff;
+  color: #000000;
+  letter-spacing: 0.5px;
+}
+
+/* Close / Collapse Bar */
+.collapseRow {
+  display: flex;
+  justify-content: center;
+  padding: 16px 0;
+}
+
+.collapseBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 28px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  font-family: var(--font-display, "D-DIN-Bold", sans-serif);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  border-radius: 32px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.collapseBtn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* Bottom CTA / Links */
+.bottomBox {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--color-hairline-on-dark, #3a3a3f);
+  border-radius: 16px;
+  padding: 36px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.bottomText {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-width: 650px;
+}
+
+.bottomHeading {
+  font-family: var(--font-display, "D-DIN-Bold", sans-serif);
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin: 0;
+}
+
+.bottomSub {
+  font-family: var(--font-body);
+  font-size: 14.5px;
+  color: #94a3b8;
+  margin: 0;
+}
+
+.bottomActions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.primaryLink {
+  padding: 12px 24px;
+  background: #ffffff;
+  color: #000000;
+  font-family: var(--font-display, "D-DIN-Bold", sans-serif);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  border-radius: 32px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.primaryLink:hover {
+  background: #e2e8f0;
+  transform: translateY(-2px);
+}
+
+.secondaryLink {
+  padding: 12px 24px;
+  background: transparent;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  font-family: var(--font-display, "D-DIN-Bold", sans-serif);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  border-radius: 32px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.secondaryLink:hover {
+  border-color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .specsBar {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .pillarsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .simControls {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .thumbnailGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .cardCover {
+    height: 240px;
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding: 32px 20px 64px;
+    gap: 32px;
+  }
+
+  .cardCover {
+    height: 180px;
+  }
+
+  .cardSummary {
+    padding: 20px 20px 28px;
+    gap: 16px;
+  }
+
+  .projectIcon {
+    width: 44px;
+    height: 44px;
+    font-size: 20px;
+  }
+
+  .specsBar {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+
+  .activeScreenCard {
+    padding: 20px 16px;
+  }
+
+  .simControls {
+    grid-template-columns: 1fr;
+  }
+
+  .thumbnailGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .bottomBox {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

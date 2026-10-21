@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import styles from "./sidebar.module.css";
 
@@ -20,6 +21,27 @@ const NAV_ITEMS: NavItem[] = [
 export default function Sidebar() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [isLightMode, setIsLightMode] = useState<boolean>(false);
+
+  useEffect(() => {
+    // Check saved theme preference on mount
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "light") {
+      setIsLightMode(true);
+      document.documentElement.setAttribute("data-theme", "light");
+    } else {
+      setIsLightMode(false);
+      document.documentElement.setAttribute("data-theme", "dark");
+    }
+  }, []);
+
+  const toggleTheme = () => {
+    const nextMode = !isLightMode;
+    setIsLightMode(nextMode);
+    const themeName = nextMode ? "light" : "dark";
+    document.documentElement.setAttribute("data-theme", themeName);
+    localStorage.setItem("theme", themeName);
+  };
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -52,51 +74,6 @@ export default function Sidebar() {
     setIsOpen(false);
   };
 
-  const spacexLogoSvg = (className: string) => (
-    <svg
-      className={className}
-      viewBox="0 0 540 68"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      {/* S */}
-      <path
-        d="M32.8 45.4C32.8 48.9 29.8 51.5 24.2 51.5C18.6 51.5 13.9 48.7 12.1 46.2L0 55.4C4.8 61.6 13.7 66.8 24.5 66.8C40.4 66.8 49.3 57.5 49.3 44.8C49.3 27.6 28.5 25.1 28.5 19.3C28.5 16.5 31.1 14.8 35.8 14.8C40.6 14.8 44.6 16.9 46.5 19.1L57.2 9.6C51.6 4.3 43.8 0 35.2 0C21.1 0 12.8 8.8 12.8 20.3C12.8 38.3 32.8 40.2 32.8 45.4Z"
-        fill="white"
-      />
-      {/* P */}
-      <path
-        d="M74.8 1.4H90.8C108.6 1.4 119.7 11.2 119.7 26.6C119.7 42.1 108.6 51.8 90.8 51.8H90.5V66H74.8V1.4ZM90.5 37.8C98.4 37.8 103.5 33.4 103.5 26.6C103.5 19.8 98.4 15.4 90.5 15.4H90.3V37.8H90.5Z"
-        fill="white"
-      />
-      {/* A */}
-      <path
-        d="M165.7 66H182.2L162.7 1.4H147.2L127.7 66H144.2L147.6 53.6H162.3L165.7 66ZM151.3 40.5L155 26.8L158.6 40.5H151.3Z"
-        fill="white"
-      />
-      {/* C */}
-      <path
-        d="M239.5 46.7C236.4 50 230.7 52.6 223.7 52.6C210.5 52.6 200.7 42.4 200.7 29.8C200.7 17.2 210.5 7 223.7 7C230.7 7 236.4 9.6 239.5 12.9L251.2 3.1C244.6 -2.1 234.9 -5.4 223.7 -5.4C198.8 -5.4 184 10.3 184 29.8C184 49.3 198.8 65 223.7 65C234.9 65 244.6 61.7 251.2 56.5L239.5 46.7Z"
-        transform="translate(10, 4)"
-        fill="white"
-      />
-      {/* E */}
-      <path
-        d="M276.5 1.4H319.4V15.4H292.2V26.2H315.6V39.4H292.2V52H320.6V66H276.5V1.4Z"
-        fill="white"
-      />
-      {/* X with curved trajectory swoosh */}
-      <path
-        d="M344.8 66H361.6L378.8 38.6L395.7 66H412.5L387.2 26.4L410.9 0H394.1L378.8 24.3L363.8 0H347L370.4 26.4L344.8 66Z"
-        fill="white"
-      />
-      <path
-        d="M338 64C376 43 434 23 528 2C482 17 433 37 398 62L382 66C412 43 458 26 500 14C436 29 380 47 344 68L338 64Z"
-        fill="white"
-      />
-    </svg>
-  );
-
   return (
     <>
       {/* Mobile Top Bar (visible on < 769px) */}
@@ -105,9 +82,9 @@ export default function Sidebar() {
           href="/"
           onClick={handleLinkClick}
           className={styles.mobileBrand}
-          aria-label="SpaceX Home"
+          aria-label="Cyrus B. Reyes"
         >
-          {spacexLogoSvg(styles.mobileBrandLogo)}
+          <span className={styles.mobileBrandText}>CYRUS B. REYES</span>
         </Link>
         <button
           onClick={() => setIsOpen((prev) => !prev)}
@@ -116,16 +93,19 @@ export default function Sidebar() {
           aria-expanded={isOpen}
         >
           <span
-            className={`${styles.hamburgerBar} ${isOpen ? styles.hamburgerBarOpenTop : ""
-              }`}
+            className={`${styles.hamburgerBar} ${
+              isOpen ? styles.hamburgerBarOpenTop : ""
+            }`}
           />
           <span
-            className={`${styles.hamburgerBar} ${isOpen ? styles.hamburgerBarOpenMid : ""
-              }`}
+            className={`${styles.hamburgerBar} ${
+              isOpen ? styles.hamburgerBarOpenMid : ""
+            }`}
           />
           <span
-            className={`${styles.hamburgerBar} ${isOpen ? styles.hamburgerBarOpenBot : ""
-              }`}
+            className={`${styles.hamburgerBar} ${
+              isOpen ? styles.hamburgerBarOpenBot : ""
+            }`}
           />
         </button>
       </div>
@@ -143,51 +123,22 @@ export default function Sidebar() {
         aria-label="Sidebar Navigation"
       >
         <div>
-          {/* Top Logo */}
-          <div className={styles.logoWrapper}>
-            <Link
-              href="/"
-              onClick={handleLinkClick}
-              className={styles.brandLink}
-              aria-label="SpaceX Home"
-            >
-              {spacexLogoSvg(styles.brandLogo)}
-            </Link>
-          </div>
-
           {/* User Profile Card at Top of Navigations */}
           <div className={styles.profileSection}>
             <div className={styles.avatarContainer}>
-              <svg
-                viewBox="0 0 100 100"
-                className={styles.avatarSvg}
-                aria-label="Profile Avatar"
-              >
-                <defs>
-                  <linearGradient id="avatarBgGrad" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#f8f9fa" />
-                    <stop offset="100%" stopColor="#e9ecef" />
-                  </linearGradient>
-                  <linearGradient id="figureGrad" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#6c7a89" />
-                    <stop offset="100%" stopColor="#3d4852" />
-                  </linearGradient>
-                </defs>
-                {/* Background Circle */}
-                <circle cx="50" cy="50" r="50" fill="url(#avatarBgGrad)" />
-                {/* Head */}
-                <circle cx="50" cy="38" r="20" fill="url(#figureGrad)" />
-                {/* Neck & Shoulders */}
-                <path
-                  d="M18 92 C18 68, 32 58, 50 58 C68 58, 82 68, 82 92 Z"
-                  fill="url(#figureGrad)"
-                />
-              </svg>
+              <Image
+                src="/images/cyrus.png"
+                alt="Cyrus B. Reyes"
+                width={80}
+                height={80}
+                className={styles.avatarImg}
+                priority
+              />
             </div>
 
             {/* Name & Blue Verified Badge */}
             <div className={styles.nameRow}>
-              <span className={styles.userName}>Your Name</span>
+              <span className={styles.userName}>Cyrus B. Reyes</span>
               <svg
                 className={styles.verifiedBadge}
                 viewBox="0 0 24 24"
@@ -207,58 +158,95 @@ export default function Sidebar() {
             </div>
 
             {/* Handle */}
-            <span className={styles.userHandle}>@yourhandle</span>
+            <span className={styles.userHandle}>@Sukehiro13</span>
 
             {/* Social / Action Row */}
             <div className={styles.socialRow}>
-              {/* Facebook */}
+              {/* 1. Facebook */}
               <a
                 href="https://www.facebook.com/cyyyyyycyyyy"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.socialBtn}
                 aria-label="Facebook"
+                title="Facebook"
               >
                 <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor">
                   <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
                 </svg>
               </a>
 
-              {/* LinkedIn */}
+              {/* 2. Telegram */}
               <a
-                href="https://github.com/Sukehiro13"
+                href="https://t.me/Sukehiro13"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.socialBtn}
-                aria-label="LinkedIn"
+                aria-label="Telegram"
+                title="Telegram"
               >
                 <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor">
-                  <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
+                  <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.121l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.832.946z" />
                 </svg>
               </a>
 
-              {/* Discord */}
+              {/* 3. WhatsApp */}
               <a
-                href="https://discord.com"
+                href="https://wa.me/639241004654"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.socialBtn}
-                aria-label="Discord"
+                aria-label="WhatsApp"
+                title="WhatsApp"
               >
                 <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor">
-                  <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.929 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.893.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z" />
+                  <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
                 </svg>
               </a>
 
-              {/* Theme Toggle / Moon */}
+              {/* 4. Night mode / Daylight mode */}
               <button
                 type="button"
+                onClick={toggleTheme}
                 className={styles.socialBtn}
-                aria-label="Theme mode"
+                aria-label={
+                  isLightMode ? "Switch to night mode" : "Switch to daylight mode"
+                }
+                title={
+                  isLightMode ? "Switch to night mode" : "Switch to daylight mode"
+                }
               >
-                <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor">
-                  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-                </svg>
+                {isLightMode ? (
+                  <svg
+                    viewBox="0 0 24 24"
+                    width="15"
+                    height="15"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <circle cx="12" cy="12" r="5" />
+                    <line x1="12" y1="1" x2="12" y2="3" />
+                    <line x1="12" y1="21" x2="12" y2="23" />
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                    <line x1="1" y1="12" x2="3" y2="12" />
+                    <line x1="21" y1="12" x2="23" y2="12" />
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+                  </svg>
+                ) : (
+                  <svg
+                    viewBox="0 0 24 24"
+                    width="15"
+                    height="15"
+                    fill="currentColor"
+                  >
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                  </svg>
+                )}
               </button>
             </div>
           </div>
@@ -274,8 +262,9 @@ export default function Sidebar() {
                     key={item.href}
                     href={item.href}
                     onClick={handleLinkClick}
-                    className={`${styles.navItem} ${active ? styles.navItemActive : ""
-                      }`}
+                    className={`${styles.navItem} ${
+                      active ? styles.navItemActive : ""
+                    }`}
                     aria-current={active ? "page" : undefined}
                   >
                     {active && <span className={styles.activeIndicator} />}
@@ -285,18 +274,6 @@ export default function Sidebar() {
               })}
             </nav>
           </div>
-        </div>
-
-        {/* Sidebar Telemetry Footer */}
-        <div className={styles.sidebarFooter}>
-          <div className={styles.footerTelemetry}>
-            <span>TELEMETRY</span>
-            <span className={styles.telemetryStatus}>
-              <span className={styles.statusDot} />
-              ONLINE
-            </span>
-          </div>
-          <span className={styles.copyright}>SPACEX © 2026</span>
         </div>
       </aside>
     </>

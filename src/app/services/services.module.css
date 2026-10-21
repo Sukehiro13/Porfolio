@@ -1,0 +1,271 @@
+/* Services Page Styles — SpaceX Dark Theme (Maximized & Rich) */
+
+.page {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--color-canvas-night, #000000);
+  color: var(--color-on-primary, #ffffff);
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 56px 40px 96px;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+/* Header */
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.eyebrow {
+  font-family: var(--font-display, "D-DIN-Bold", sans-serif);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: #d97736;
+}
+
+.title {
+  font-family: var(--font-display, "D-DIN-Bold", sans-serif);
+  font-size: clamp(2.8rem, 5.5vw, 4.2rem);
+  font-weight: 700;
+  line-height: 1.0;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin: 0;
+}
+
+.subtitle {
+  font-family: var(--font-body);
+  font-size: 16.5px;
+  line-height: 1.7;
+  color: #94a3b8;
+  max-width: 760px;
+  margin: 0;
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-hairline-on-dark, #3a3a3f);
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+/* 2x2 Services Grid */
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+  width: 100%;
+}
+
+.serviceCard {
+  background: #0b0d12;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  padding: 38px 34px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.serviceCard:hover {
+  border-color: rgba(255, 255, 255, 0.35);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.7), 0 0 24px rgba(255, 255, 255, 0.06);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.iconBox {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid rgba(255, 255, 255, 0.22) !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff !important;
+  flex-shrink: 0;
+  transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.iconBox svg {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+}
+
+.iconBox svg * {
+  stroke: #ffffff !important;
+}
+
+.serviceCard:hover .iconBox {
+  transform: scale(1.08);
+  background: rgba(255, 255, 255, 0.12) !important;
+  border-color: rgba(255, 255, 255, 0.45) !important;
+  box-shadow: 0 0 18px rgba(255, 255, 255, 0.2);
+  color: #ffffff !important;
+}
+
+.serviceName {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+  color: #ffffff;
+  margin: 0;
+}
+
+.serviceDesc {
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.75;
+  color: #cbd5e1;
+  margin: 0;
+}
+
+.tagsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-top: 4px;
+}
+
+.tagPill {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 13px;
+  font-weight: 500;
+  color: #f1f5f9;
+  background: #161820;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-pill, 32px);
+  padding: 8px 18px;
+  white-space: nowrap;
+  letter-spacing: 0.2px;
+  transition: all 0.2s ease;
+}
+
+.serviceCard:hover .tagPill {
+  border-color: rgba(255, 255, 255, 0.28);
+  background: #1c202a;
+  color: #ffffff;
+}
+
+/* Callout Box at bottom */
+.ctaBox {
+  margin-top: 16px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--color-hairline-on-dark, #3a3a3f);
+  border-radius: var(--radius-md, 16px);
+  padding: 40px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.ctaTextGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-width: 600px;
+}
+
+.ctaHeading {
+  font-family: var(--font-display, "D-DIN-Bold", sans-serif);
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin: 0;
+}
+
+.ctaSub {
+  font-family: var(--font-body);
+  font-size: 14.5px;
+  color: #94a3b8;
+  margin: 0;
+}
+
+.contactBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 26px;
+  background-color: #ffffff;
+  color: #000000;
+  font-family: var(--font-display, "D-DIN-Bold", sans-serif);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  border-radius: var(--radius-pill, 32px);
+  border: 1px solid #ffffff;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.contactBtn:hover {
+  background-color: transparent;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(255, 255, 255, 0.15);
+}
+
+/* Responsive */
+@media (max-width: 860px) {
+  .servicesGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .ctaBox {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .contactBtn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding: 32px 20px 64px;
+    gap: 28px;
+  }
+
+  .serviceCard {
+    padding: 24px 20px;
+  }
+
+  .serviceName {
+    font-size: 20px;
+  }
+
+  .serviceDesc {
+    font-size: 15.5px;
+  }
+}

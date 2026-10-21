@@ -85,3 +85,325 @@ button {
   background: #ffffff;
   color: #000000;
 }
+
+/* -------------------------------------------------- */
+/* Light / Daylight Mode Alternation                  */
+/* -------------------------------------------------- */
+[data-theme="light"] {
+  --color-canvas-night: #ffffff;
+  --color-canvas-night-soft: #f8fafc;
+  --color-on-primary: #0f172a;
+  --color-on-primary-mute: #334155;
+  --color-hairline-on-dark: #e2e8f0;
+  --color-link-on-dark: #0f172a;
+  --color-ink-mute: #64748b;
+  color-scheme: light;
+}
+
+[data-theme="light"] body {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+}
+
+/* Light Mode: Main Canvas & Pages */
+[data-theme="light"] main {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+}
+
+/* Light Mode: Sidebar & Mobile Navigation */
+[data-theme="light"] aside,
+[data-theme="light"] header[class*="mobileTopBar"] {
+  background-color: #ffffff !important;
+  border-color: #e2e8f0 !important;
+  color: #0f172a !important;
+}
+
+[data-theme="light"] [class*="profileSection"] {
+  background-color: #f8fafc !important;
+  border-color: #e2e8f0 !important;
+}
+
+[data-theme="light"] [class*="userName"] {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] [class*="userHandle"] {
+  color: #64748b !important;
+}
+
+[data-theme="light"] [class*="socialBtn"] {
+  background: #f1f5f9 !important;
+  border-color: #e2e8f0 !important;
+  color: #0f172a !important;
+}
+
+[data-theme="light"] [class*="socialBtn"]:hover {
+  background: #e2e8f0 !important;
+  border-color: #cbd5e1 !important;
+  color: #0f172a !important;
+}
+
+[data-theme="light"] [class*="navItem"] {
+  color: #64748b !important;
+}
+
+[data-theme="light"] [class*="navItem"]:hover,
+[data-theme="light"] [class*="navItemActive"] {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] [class*="activeIndicator"] {
+  background-color: #0f172a !important;
+}
+
+[data-theme="light"] [class*="hamburgerBar"] {
+  background-color: #0f172a !important;
+}
+
+[data-theme="light"] [class*="brandLogo"],
+[data-theme="light"] [class*="mobileBrandLogo"] {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] [class*="footerTelemetry"] {
+  color: #64748b !important;
+}
+
+[data-theme="light"] [class*="copyright"] {
+  color: #94a3b8 !important;
+}
+
+/* Light Mode: Cards across Home, Services, Project, Contact */
+[data-theme="light"] article,
+[data-theme="light"] [class*="serviceCard"],
+[data-theme="light"] [class*="projectCard"],
+[data-theme="light"] [class*="pillarCard"],
+[data-theme="light"] [class*="channelCard"],
+[data-theme="light"] [class*="formCard"],
+[data-theme="light"] [class*="activeScreenCard"],
+[data-theme="light"] [class*="simulatorBox"],
+[data-theme="light"] [class*="specsBar"],
+[data-theme="light"] [class*="terminalCard"],
+[data-theme="light"] [class*="toolsCard"],
+[data-theme="light"] [class*="quickResponseCard"],
+[data-theme="light"] [class*="ctaBox"],
+[data-theme="light"] [class*="bottomBox"] {
+  background-color: #f8fafc !important;
+  border-color: #e2e8f0 !important;
+  color: #0f172a !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
+}
+
+[data-theme="light"] [class*="serviceCard"]:hover,
+[data-theme="light"] [class*="projectCard"]:hover,
+[data-theme="light"] [class*="channelCard"]:hover {
+  border-color: #cbd5e1 !important;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Light Mode: Headings */
+[data-theme="light"] h1,
+[data-theme="light"] h2,
+[data-theme="light"] h3,
+[data-theme="light"] h4,
+[data-theme="light"] [class*="title"],
+[data-theme="light"] [class*="serviceName"],
+[data-theme="light"] [class*="projectTitle"],
+[data-theme="light"] [class*="screenTitle"],
+[data-theme="light"] [class*="channelValue"],
+[data-theme="light"] [class*="ctaHeading"],
+[data-theme="light"] [class*="bottomHeading"],
+[data-theme="light"] [class*="quickTitle"],
+[data-theme="light"] [class*="sectionTitle"],
+[data-theme="light"] [class*="pillarTitle"],
+[data-theme="light"] [class*="simTitle"],
+[data-theme="light"] [class*="outTitle"],
+[data-theme="light"] [class*="specValue"] {
+  color: #0f172a !important;
+}
+
+/* Light Mode: Body & Subtitle Text */
+[data-theme="light"] p,
+[data-theme="light"] [class*="subtitle"],
+[data-theme="light"] [class*="serviceDesc"],
+[data-theme="light"] [class*="screenCaption"],
+[data-theme="light"] [class*="pillarDesc"],
+[data-theme="light"] [class*="projectExcerpt"],
+[data-theme="light"] [class*="ctaSub"],
+[data-theme="light"] [class*="bottomSub"],
+[data-theme="light"] [class*="quickText"],
+[data-theme="light"] [class*="sectionDesc"],
+[data-theme="light"] [class*="simDesc"],
+[data-theme="light"] [class*="outSub"] {
+  color: #334155 !important;
+}
+
+/* Light Mode: Icon Containers & Icons */
+[data-theme="light"] [class*="iconBox"],
+[data-theme="light"] [class*="projectIcon"] {
+  background: #ffffff !important;
+  border-color: #cbd5e1 !important;
+  color: #0f172a !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+}
+
+[data-theme="light"] [class*="iconBox"] svg,
+[data-theme="light"] [class*="iconBox"] svg * {
+  stroke: #0f172a !important;
+  color: #0f172a !important;
+}
+
+[data-theme="light"] [class*="iconBox"] svg circle {
+  fill: #0f172a !important;
+}
+
+/* Light Mode: Tag Pills */
+[data-theme="light"] [class*="tagPill"] {
+  background: #ffffff !important;
+  color: #0f172a !important;
+  border-color: #cbd5e1 !important;
+}
+
+/* Light Mode: Inputs & Controls */
+[data-theme="light"] [class*="inputField"],
+[data-theme="light"] [class*="textareaField"],
+[data-theme="light"] [class*="simSelect"],
+[data-theme="light"] [class*="simInput"] {
+  background: #ffffff !important;
+  color: #0f172a !important;
+  border-color: #cbd5e1 !important;
+}
+
+[data-theme="light"] [class*="inputField"]::placeholder,
+[data-theme="light"] [class*="textareaField"]::placeholder {
+  color: #94a3b8 !important;
+}
+
+[data-theme="light"] [class*="fieldLabel"],
+[data-theme="light"] [class*="controlLabel"],
+[data-theme="light"] [class*="channelLabel"] {
+  color: #475569 !important;
+}
+
+/* Light Mode: Buttons */
+[data-theme="light"] [class*="submitBtn"],
+[data-theme="light"] [class*="primaryBtn"],
+[data-theme="light"] [class*="primaryLink"],
+[data-theme="light"] [class*="toggleBtn"],
+[data-theme="light"] [class*="contactBtn"] {
+  background-color: #0f172a !important;
+  color: #ffffff !important;
+  border-color: #0f172a !important;
+}
+
+[data-theme="light"] [class*="submitBtn"]:hover,
+[data-theme="light"] [class*="primaryBtn"]:hover,
+[data-theme="light"] [class*="primaryLink"]:hover,
+[data-theme="light"] [class*="toggleBtn"]:hover,
+[data-theme="light"] [class*="contactBtn"]:hover {
+  background-color: #334155 !important;
+  color: #ffffff !important;
+  border-color: #334155 !important;
+}
+
+[data-theme="light"] [class*="secondaryBtn"],
+[data-theme="light"] [class*="secondaryLink"],
+[data-theme="light"] [class*="collapseBtn"] {
+  background-color: transparent !important;
+  color: #0f172a !important;
+  border-color: #cbd5e1 !important;
+}
+
+[data-theme="light"] [class*="secondaryBtn"]:hover,
+[data-theme="light"] [class*="secondaryLink"]:hover,
+[data-theme="light"] [class*="collapseBtn"]:hover {
+  background-color: #f1f5f9 !important;
+  border-color: #0f172a !important;
+}
+
+/* Light Mode: Tab Buttons */
+[data-theme="light"] [class*="tabBtn"] {
+  background: #ffffff !important;
+  color: #475569 !important;
+  border-color: #cbd5e1 !important;
+}
+
+[data-theme="light"] [class*="tabBtnActive"] {
+  background: #0f172a !important;
+  color: #ffffff !important;
+  border-color: #0f172a !important;
+}
+
+/* Light Mode: Dividers */
+[data-theme="light"] [class*="divider"] {
+  background-color: #e2e8f0 !important;
+}
+
+/* Light Mode: Status Badge & Terminal */
+[data-theme="light"] [class*="statusBadge"] {
+  background: #f1f5f9 !important;
+  border-color: #cbd5e1 !important;
+  color: #334155 !important;
+}
+
+[data-theme="light"] [class*="terminalCard"] {
+  background: #ffffff !important;
+  border-color: #cbd5e1 !important;
+}
+
+[data-theme="light"] [class*="terminalHeader"] {
+  background: #f1f5f9 !important;
+  border-color: #e2e8f0 !important;
+}
+
+[data-theme="light"] [class*="terminalTitle"] {
+  color: #475569 !important;
+}
+
+[data-theme="light"] [class*="cmdBtn"] {
+  background: #f1f5f9 !important;
+  border-color: #cbd5e1 !important;
+  color: #0f172a !important;
+}
+
+[data-theme="light"] [class*="terminalOutput"] {
+  background: #f8fafc !important;
+  border-color: #e2e8f0 !important;
+  color: #0f172a !important;
+}
+
+/* Light Mode: Tools Marquee */
+[data-theme="light"] [class*="toolsLabel"] {
+  color: #64748b !important;
+}
+
+[data-theme="light"] [class*="marqueeItem"] {
+  background: #ffffff !important;
+  border-color: #cbd5e1 !important;
+  color: #0f172a !important;
+}
+
+[data-theme="light"] [class*="toolName"] {
+  color: #0f172a !important;
+}
+
+/* Light Mode: Simulator Output */
+[data-theme="light"] [class*="simOutput"] {
+  background: #ffffff !important;
+  border-color: #cbd5e1 !important;
+}
+
+[data-theme="light"] [class*="outBadge"] {
+  background: #0f172a !important;
+  color: #ffffff !important;
+}
+
+/* Light Mode: Footer */
+[data-theme="light"] footer {
+  background-color: #ffffff !important;
+  border-color: #e2e8f0 !important;
+  color: #64748b !important;
+}
+
+
