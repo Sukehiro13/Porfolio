@@ -66,14 +66,14 @@
 /* Layout Grid: Left Channels + Right Form */
 .contactGrid {
   display: grid;
-  grid-template-columns: 380px 1fr;
+  grid-template-columns: 400px 1fr;
   gap: 32px;
   width: 100%;
   align-items: start;
 }
 
 /* -------------------------------------------------- */
-/* Left Column: Channels & Coordinates */
+/* Left Column: Channels & Coordinates                */
 /* -------------------------------------------------- */
 .channelsCol {
   display: flex;
@@ -85,13 +85,14 @@
   background: #0b0d12;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 16px;
-  padding: 20px 24px;
+  padding: 20px 22px;
   display: flex;
   align-items: center;
-  gap: 18px;
+  gap: 16px;
   text-decoration: none;
   color: inherit;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
 }
 
 .channelCard:hover {
@@ -99,6 +100,30 @@
   transform: translateY(-2px);
   background: #11141c;
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.5);
+}
+
+/* Email-specific channel card container */
+.emailCard {
+  background: #0b0d12;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  padding: 20px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.emailCard:hover {
+  border-color: rgba(255, 255, 255, 0.32);
+  background: #11141c;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.5);
+}
+
+.emailCardTop {
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
 
 .iconBox {
@@ -115,7 +140,8 @@
   transition: all 0.2s ease;
 }
 
-.channelCard:hover .iconBox {
+.channelCard:hover .iconBox,
+.emailCard:hover .iconBox {
   transform: scale(1.08);
   border-color: rgba(255, 255, 255, 0.4);
   background: rgba(255, 255, 255, 0.12);
@@ -127,6 +153,7 @@
   flex-direction: column;
   gap: 4px;
   overflow: hidden;
+  flex: 1;
 }
 
 .channelLabel {
@@ -144,6 +171,46 @@
   color: #ffffff;
   letter-spacing: -0.2px;
   word-break: break-all;
+}
+
+/* Action Group inside Email Card */
+.channelActions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.cardActionBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 9999px;
+  color: #ffffff;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.cardActionBtn:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.36);
+  transform: translateY(-1px);
+}
+
+.cardActionBtnCopied {
+  background: rgba(34, 197, 94, 0.15) !important;
+  border-color: #22c55e !important;
+  color: #4ade80 !important;
 }
 
 /* Quick Response Card */
@@ -176,7 +243,7 @@
 }
 
 /* -------------------------------------------------- */
-/* Right Column: Contact Form */
+/* Right Column: Contact Form                         */
 /* -------------------------------------------------- */
 .formCard {
   background: #0b0d12;
@@ -186,6 +253,28 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
+}
+
+.formHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.formTitle {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+  margin: 0;
+}
+
+.formSubtitle {
+  font-family: var(--font-body);
+  font-size: 13.5px;
+  color: #94a3b8;
+  margin: 0;
 }
 
 .formGrid {
@@ -240,6 +329,12 @@
   box-shadow: 0 0 12px rgba(255, 255, 255, 0.08);
 }
 
+.inputField:disabled,
+.textareaField:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
 .textareaField {
   min-height: 180px;
   resize: vertical;
@@ -266,28 +361,371 @@
   margin-top: 6px;
 }
 
-.submitBtn:hover {
+.submitBtn:hover:not(:disabled) {
   background-color: transparent;
   color: #ffffff;
   transform: translateY(-2px);
   box-shadow: 0 6px 24px rgba(255, 255, 255, 0.2);
 }
 
-.submitBtn:active {
+.submitBtn:active:not(:disabled) {
   transform: translateY(0);
 }
 
-.successMsg {
+.submitBtn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Spinner Animation */
+.spinner {
+  animation: spin 0.85s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Success Card */
+.successCard {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 24px 26px;
+  background: rgba(34, 197, 94, 0.06);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  border-radius: 16px;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.successHeader {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 16px 20px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  border-radius: 12px;
+}
+
+.successBadge {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 11px;
+  font-weight: 700;
+  color: #4ade80;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.successTitle {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+}
+
+.successText {
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.6;
+  color: #cbd5e1;
+  margin: 0;
+}
+
+.resetBtn {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  margin-top: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 9999px;
   color: #ffffff;
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.resetBtn:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-1px);
+}
+
+/* Info / Email App Launched Card */
+.infoCard {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 24px 26px;
+  background: rgba(56, 189, 248, 0.06);
+  border: 1px solid rgba(56, 189, 248, 0.28);
+  border-radius: 16px;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.infoHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.infoBadge {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 11px;
+  font-weight: 700;
+  color: #38bdf8;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.infoTitle {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+}
+
+.infoText {
+  font-family: var(--font-body);
   font-size: 14px;
+  line-height: 1.6;
+  color: #cbd5e1;
+  margin: 0;
+}
+
+.infoActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: 6px;
+}
+
+.smtpTip {
+  margin-top: 10px;
+  padding: 12px 14px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px dashed rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  font-size: 12.5px;
+  color: #94a3b8;
+  line-height: 1.6;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+.smtpCode {
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.12);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+/* Error Card */
+.errorCard {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 22px 24px;
+  background: rgba(239, 68, 68, 0.07);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 16px;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.errorHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.errorBadge {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 11px;
+  font-weight: 700;
+  color: #f87171;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.errorTitle {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 15px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+}
+
+.errorText {
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.6;
+  color: #cbd5e1;
+  margin: 0;
+}
+
+.errorActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: 6px;
+}
+
+.fallbackMailtoBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 22px;
+  background-color: #ffffff;
+  color: #000000;
+  border: 1px solid #ffffff;
+  border-radius: 9999px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.fallbackMailtoBtn:hover {
+  background-color: transparent;
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(255, 255, 255, 0.2);
+}
+
+.retryBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 11px 18px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 9999px;
+  color: #ffffff;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.retryBtn:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Light / Daylight Theme Adaptations */
+:global([data-theme="light"]) .channelCard,
+:global([data-theme="light"]) .emailCard,
+:global([data-theme="light"]) .quickResponseCard,
+:global([data-theme="light"]) .formCard {
+  background: #ffffff;
+  border-color: #e2e8f0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+:global([data-theme="light"]) .channelCard:hover,
+:global([data-theme="light"]) .emailCard:hover {
+  border-color: #cbd5e1;
+  background: #f8fafc;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+}
+
+:global([data-theme="light"]) .channelValue,
+:global([data-theme="light"]) .fieldLabel,
+:global([data-theme="light"]) .quickTitle,
+:global([data-theme="light"]) .formTitle {
+  color: #0f172a;
+}
+
+:global([data-theme="light"]) .iconBox {
+  background: #f1f5f9;
+  border-color: #e2e8f0;
+}
+
+:global([data-theme="light"]) .iconBox svg {
+  stroke: #0f172a;
+}
+
+:global([data-theme="light"]) .inputField,
+:global([data-theme="light"]) .textareaField {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+  color: #0f172a;
+}
+
+:global([data-theme="light"]) .inputField:focus,
+:global([data-theme="light"]) .textareaField:focus {
+  background: #ffffff;
+  border-color: #0f172a;
+  box-shadow: 0 0 0 3px rgba(15, 23, 42, 0.08);
+}
+
+:global([data-theme="light"]) .cardActionBtn {
+  border-color: #cbd5e1;
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+:global([data-theme="light"]) .cardActionBtn:hover {
+  background: #e2e8f0;
+  border-color: #94a3b8;
+}
+
+:global([data-theme="light"]) .submitBtn {
+  background-color: #0f172a;
+  color: #ffffff;
+  border-color: #0f172a;
+}
+
+:global([data-theme="light"]) .submitBtn:hover:not(:disabled) {
+  background-color: #334155;
+  color: #ffffff;
+}
+
+:global([data-theme="light"]) .fallbackMailtoBtn {
+  background-color: #0f172a;
+  color: #ffffff;
+  border-color: #0f172a;
+}
+
+:global([data-theme="light"]) .fallbackMailtoBtn:hover {
+  background-color: #334155;
+  color: #ffffff;
+}
+
+:global([data-theme="light"]) .retryBtn,
+:global([data-theme="light"]) .resetBtn {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+  color: #0f172a;
+}
+
+:global([data-theme="light"]) .retryBtn:hover,
+:global([data-theme="light"]) .resetBtn:hover {
+  background: #e2e8f0;
 }
 
 /* Responsive */
@@ -312,7 +750,8 @@
     padding: 24px 20px;
   }
 
-  .channelCard {
+  .channelCard,
+  .emailCard {
     padding: 16px 18px;
   }
 }

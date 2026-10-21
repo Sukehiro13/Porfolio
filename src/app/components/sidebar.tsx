@@ -26,13 +26,10 @@ export default function Sidebar() {
   useEffect(() => {
     // Check saved theme preference on mount
     const savedTheme = localStorage.getItem("theme");
-    if (savedTheme === "light") {
-      setIsLightMode(true);
-      document.documentElement.setAttribute("data-theme", "light");
-    } else {
-      setIsLightMode(false);
-      document.documentElement.setAttribute("data-theme", "dark");
-    }
+    const isLight = savedTheme === "light";
+    document.documentElement.setAttribute("data-theme", isLight ? "light" : "dark");
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setIsLightMode(isLight);
   }, []);
 
   const toggleTheme = () => {

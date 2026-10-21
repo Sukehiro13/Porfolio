@@ -408,6 +408,21 @@ export default function ProjectPage() {
                       onChange={(e) => setSimP(parseInt(e.target.value, 10))}
                     />
                   </div>
+
+                  <div className={styles.controlGroup}>
+                    <label htmlFor="sim-k" className={styles.controlLabel}>
+                      Potassium (K%): {simK}%
+                    </label>
+                    <input
+                      id="sim-k"
+                      type="range"
+                      min="1"
+                      max="30"
+                      className={styles.simInput}
+                      value={simK}
+                      onChange={(e) => setSimK(parseInt(e.target.value, 10))}
+                    />
+                  </div>
                 </div>
 
                 {/* Dynamic Simulator Output Card */}
